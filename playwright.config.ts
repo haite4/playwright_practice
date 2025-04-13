@@ -9,8 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 1,
   reporter: [["line"], ["allure-playwright"]],
   use: {
-    baseURL: "https://www.saucedemo.com"
-    ,
+    baseURL: "https://www.saucedemo.com",
 
     trace: 'on-first-retry',
   },

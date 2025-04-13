@@ -5,16 +5,23 @@ on: workflow_dispatch
 jobs:
   ui-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
       
       - name: Checkout (copy) gh-pages repository to GitHub runner
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: ./.github/gh-pages
-        continue-on-error: true  # Добавлено, чтобы не останавливаться, если ветки gh-pages нет
+        continue-on-error: true
+      
+      - name: Create history directory if it doesn't exist
+        run: |
+          mkdir -p ./.github/gh-pages/history
       
       - name: Run UI-tests via docker-compose
         env:
@@ -41,9 +48,9 @@ jobs:
           sudo mkdir -p ./.github/gh-pages/history
           sudo cp -R allure-report/history/* ./.github/gh-pages/history/ || true
       
-      - name: Deploy Allure report to GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
+          keep_files: false
