@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/workspace
-    command: /bin/sh -c "npm install -g allure-playwright && npx playwright test --reporter=allure-playwright"
+    command: /bin/sh -c "cd /usr/workspace && npm ci && npx playwright test --reporter=allure-playwright"
     working_dir: /usr/workspace
     environment:
       - USER_NAME=${USER_NAME}
