@@ -5,6 +5,8 @@ test.describe("Verify login functionality", () => {
 
     test.beforeEach("Open page", async({ signinPage }) => {
         await signinPage.open();
+        console.log(`USER_NAME: ${process.env.USER_NAME || 'не установлен'}`);
+        console.log(`PASSWORD: ${process.env.PASSWORD ? '***установлен***' : 'не установлен'}`);
     });
 
     test("Verify login on page", async({ signinPage, inventoryItemPage }) => {
