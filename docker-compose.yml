@@ -11,3 +11,4 @@ services:
     environment:
       - USER_NAME=${USER_NAME}
       - PASSWORD=${PASSWORD}
+      - INCORRECT_PASSWORD=${INCORRECT_PASSWORD}

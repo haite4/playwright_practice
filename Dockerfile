@@ -16,19 +16,13 @@ RUN curl -o allure-2.24.0.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta
     ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure && \
     rm allure-2.24.0.tgz
 
-# Установка TypeScript
-RUN npm install -g typescript ts-node
-
 WORKDIR /usr/workspace
 
-# Предустановка allure-playwright для корректной работы с отчетами
 RUN npm install -g allure-playwright@2.4.0
 
-# Копирование package.json и установка зависимостей
 COPY package*.json ./
 RUN npm ci || npm install
 
-# Копирование остальных файлов
 COPY . .
 
 # Команда по умолчанию

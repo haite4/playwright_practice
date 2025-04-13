@@ -27,6 +27,8 @@ jobs:
         env:
           USER_NAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          INCORRECT_PASSWORD: ${{ secrets.INCORRECT_PASSWORD }}
+          
         run: |
           docker compose up --exit-code-from regression || true
       
