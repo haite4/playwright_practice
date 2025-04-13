@@ -8,10 +8,10 @@ RUN apt-get update && \
     openjdk-11-jre-headless \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -o allure-2.13.8.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz && \
-    tar -zxvf allure-2.13.8.tgz -C /opt/ && \
-    ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
-    rm allure-2.13.8.tgz
+RUN curl -o allure-2.24.0.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.24.0/allure-commandline-2.24.0.tgz && \
+    tar -zxvf allure-2.24.0.tgz -C /opt/ && \
+    ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure && \
+    rm allure-2.24.0.tgz
 
 RUN npm install -g typescript ts-node
 
