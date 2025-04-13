@@ -32,7 +32,7 @@ Call log:
 ```yaml
 - text: Swag Labs
 - textbox "Username"
-- textbox "Password": password_example123
+- textbox "Password"
 - 'heading "Epic sadface: Username is required" [level=3]':
   - button
   - text: "Epic sadface: Username is required"
