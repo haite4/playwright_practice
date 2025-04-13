@@ -1,0 +1,19 @@
+{
+  "name": "playwright_practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "run:test": "npx playwright test tests/login.spec.ts",
+    "run:report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1",
+    "allure-playwright": "^3.2.1",
+    "dotenv": "^16.5.0"
+  }
+}
