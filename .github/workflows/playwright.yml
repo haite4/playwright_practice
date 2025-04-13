@@ -21,7 +21,7 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          docker-compose up --exit-code-from regression || true
+          docker compose up --exit-code-from regression || true
       
       - name: Copy history from gh-pages to allure-results
         run: |
