@@ -41,10 +41,9 @@ jobs:
           sudo mkdir -p ./.github/gh-pages/history
           sudo cp -R allure-report/history/* ./.github/gh-pages/history/ || true
       
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: Deploy Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          token: ${{ secrets.CI_TOKEN }}
-          branch: gh-pages
-          folder: allure-report
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
