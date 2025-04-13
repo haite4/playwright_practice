@@ -1,0 +1,80 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Verify login functionality >> Verify login with incorrect data
+- Location: /usr/workspace/tests/login.spec.ts:21:9
+
+# Error details
+
+```
+Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+
+Locator: locator('form div[class*="error-message-container"]')
+Expected string: "Epic sadface: Username and password do not match any user in this service"
+Received string: "Epic sadface: Username is required"
+Call log:
+  - expect.toHaveText with timeout 5000ms
+  - waiting for locator('form div[class*="error-message-container"]')
+    9 × locator resolved to <div class="error-message-container error">…</div>
+      - unexpected value "Epic sadface: Username is required"
+
+    at /usr/workspace/tests/login.spec.ts:27:52
+    at /usr/workspace/tests/login.spec.ts:26:20
+```
+
+# Page snapshot
+
+```yaml
+- text: Swag Labs
+- textbox "Username"
+- textbox "Password": password_example123
+- 'heading "Epic sadface: Username is required" [level=3]':
+  - button
+  - text: "Epic sadface: Username is required"
+- button "Login"
+- heading "Accepted usernames are:" [level=4]
+- text: standard_user locked_out_user problem_user performance_glitch_user error_user visual_user
+- heading "Password for all users:" [level=4]
+- text: secret_sauce
+```
+
+# Test source
+
+```ts
+   1 | import { test } from "../fixtures/testFixtures";
+   2 | import { expect } from "@playwright/test";
+   3 |
+   4 | test.describe("Verify login functionality", () => {
+   5 |
+   6 |     test.beforeEach("Open page", async({ signinPage }) => {
+   7 |         await signinPage.open();
+   8 |     });
+   9 |
+  10 |     test("Verify login on page", async({ signinPage, inventoryItemPage }) => {
+  11 |         
+  12 |         await test.step("Login", async() => {
+  13 |             await signinPage.login(process.env.USER_NAME, process.env.PASSWORD);
+  14 |         });
+  15 |
+  16 |         await test.step("Verify item is visible", async() => {
+  17 |             await expect(inventoryItemPage.getItemName()).toBeVisible();
+  18 |         });
+  19 |     });
+  20 |
+  21 |     test("Verify login with incorrect data", async({ signinPage }) => {
+  22 |         await test.step("Login", async() => {
+  23 |             await signinPage.login(process.env.USER_NAME, process.env.INCORRECT_PASSWORD);
+  24 |         });
+  25 |
+  26 |         await test.step("Verify error message is displayed.", async() => {
+> 27 |             await expect(signinPage.getErrorMsg()).toHaveText("Epic sadface: Username and password do not match any user in this service");
+     |                                                    ^ Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+  28 |         });
+  29 |     });
+  30 | });
+```

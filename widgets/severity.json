@@ -1,1 +1,1 @@
-[ ]
+[{"uid":"9bcaf298d79e5a57","name":"Verify login on page","time":{"start":1744573845813,"stop":1744573851189,"duration":5376},"status":"failed","severity":"normal"},{"uid":"307a0ebdcef2930f","name":"Verify login with incorrect data","time":{"start":1744573851924,"stop":1744573857296,"duration":5372},"status":"failed","severity":"normal"}]

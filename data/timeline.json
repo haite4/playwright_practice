@@ -1,5 +1,1 @@
-{
-  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
-  "children" : [ ],
-  "name" : "timeline"
-}
+{"uid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","name":"timeline","children":[{"name":"4670b909a828","children":[{"name":"pid-30-worker-0","children":[{"name":"Verify login on page","uid":"9bcaf298d79e5a57","parentUid":"ba4b2de9fb0de0d9180f586696d5b08c","status":"failed","time":{"start":1744573845813,"stop":1744573851189,"duration":5376},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":["chromium"],"tags":[]},{"name":"Verify login with incorrect data","uid":"307a0ebdcef2930f","parentUid":"ba4b2de9fb0de0d9180f586696d5b08c","status":"failed","time":{"start":1744573851924,"stop":1744573857296,"duration":5372},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":["chromium"],"tags":[]}],"uid":"ba4b2de9fb0de0d9180f586696d5b08c"}],"uid":"104b273cce0f2489d6728df230acbc2b"}]}
