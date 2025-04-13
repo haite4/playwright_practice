@@ -7,7 +7,7 @@
 # Test info
 
 - Name: Verify login functionality >> Verify login with incorrect data
-- Location: /usr/workspace/tests/login.spec.ts:21:9
+- Location: /usr/workspace/tests/login.spec.ts:23:9
 
 # Error details
 
@@ -23,8 +23,8 @@ Call log:
     9 × locator resolved to <div class="error-message-container error">…</div>
       - unexpected value "Epic sadface: Username is required"
 
-    at /usr/workspace/tests/login.spec.ts:27:52
-    at /usr/workspace/tests/login.spec.ts:26:20
+    at /usr/workspace/tests/login.spec.ts:29:52
+    at /usr/workspace/tests/login.spec.ts:28:20
 ```
 
 # Page snapshot
@@ -53,28 +53,30 @@ Call log:
    5 |
    6 |     test.beforeEach("Open page", async({ signinPage }) => {
    7 |         await signinPage.open();
-   8 |     });
-   9 |
-  10 |     test("Verify login on page", async({ signinPage, inventoryItemPage }) => {
-  11 |         
-  12 |         await test.step("Login", async() => {
-  13 |             await signinPage.login(process.env.USER_NAME, process.env.PASSWORD);
-  14 |         });
-  15 |
-  16 |         await test.step("Verify item is visible", async() => {
-  17 |             await expect(inventoryItemPage.getItemName()).toBeVisible();
-  18 |         });
-  19 |     });
-  20 |
-  21 |     test("Verify login with incorrect data", async({ signinPage }) => {
-  22 |         await test.step("Login", async() => {
-  23 |             await signinPage.login(process.env.USER_NAME, process.env.INCORRECT_PASSWORD);
-  24 |         });
-  25 |
-  26 |         await test.step("Verify error message is displayed.", async() => {
-> 27 |             await expect(signinPage.getErrorMsg()).toHaveText("Epic sadface: Username and password do not match any user in this service");
+   8 |         console.log(`USER_NAME: ${process.env.USER_NAME || 'не установлен'}`);
+   9 |         console.log(`PASSWORD: ${process.env.PASSWORD ? '***установлен***' : 'не установлен'}`);
+  10 |     });
+  11 |
+  12 |     test("Verify login on page", async({ signinPage, inventoryItemPage }) => {
+  13 |         
+  14 |         await test.step("Login", async() => {
+  15 |             await signinPage.login(process.env.USER_NAME, process.env.PASSWORD);
+  16 |         });
+  17 |
+  18 |         await test.step("Verify item is visible", async() => {
+  19 |             await expect(inventoryItemPage.getItemName()).toBeVisible();
+  20 |         });
+  21 |     });
+  22 |
+  23 |     test("Verify login with incorrect data", async({ signinPage }) => {
+  24 |         await test.step("Login", async() => {
+  25 |             await signinPage.login(process.env.USER_NAME, process.env.INCORRECT_PASSWORD);
+  26 |         });
+  27 |
+  28 |         await test.step("Verify error message is displayed.", async() => {
+> 29 |             await expect(signinPage.getErrorMsg()).toHaveText("Epic sadface: Username and password do not match any user in this service");
      |                                                    ^ Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
-  28 |         });
-  29 |     });
-  30 | });
+  30 |         });
+  31 |     });
+  32 | });
 ```
