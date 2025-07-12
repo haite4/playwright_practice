@@ -1,0 +1,17 @@
+Following are your credentials to login to machine:
+
+Machine name: JupyterHubServer
+Username: stanislav
+Password: 9jb94MeYA4re
+
+For security reasons, we recommend resetting your password after your first login.
+
+To reset your password, please follow these steps:
+1. Log in using the provided machine level credentials.
+2. Upon successful login, reset the password using the following commands.
+   passwd
+3. Enter your new password and confirm it when prompted.
+
+If you forget your password, please contact the administrator for assistance.
+
+Thank you for using our services.
