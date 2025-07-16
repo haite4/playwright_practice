@@ -26,7 +26,7 @@ test.describe("Verify login functionality", () => {
         });
 
         await test.step("Verify error message is displayed.", async() => {
-            await expect(signinPage.getErrorMsg()).not.toHaveText("Epic sadface: Username and password do not match any user in this service");
+            await expect(signinPage.getErrorMsg()).toHaveText("Epic sadface: Username and password do not match any user in this service");
         });
     });
 
