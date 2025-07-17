@@ -1,3 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jul 16 14:01:44 UTC 2025","Wed Jul 16 14:01:44 UTC 2025","325","chromium","login.spec.ts","Verify login functionality","","","Verify login with incorrect data",""
-"passed","Wed Jul 16 14:01:43 UTC 2025","Wed Jul 16 14:01:44 UTC 2025","773","chromium","login.spec.ts","Verify login functionality","","","Verify login on page",""
+"passed","Thu Jul 17 14:02:01 UTC 2025","Thu Jul 17 14:02:02 UTC 2025","301","chromium","login.spec.ts","Verify login functionality","","","Verify login with incorrect data",""
+"passed","Thu Jul 17 14:02:01 UTC 2025","Thu Jul 17 14:02:01 UTC 2025","491","chromium","login.spec.ts","Verify login functionality","","","Verify login on page",""
