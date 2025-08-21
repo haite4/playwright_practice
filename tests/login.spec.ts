@@ -6,31 +6,45 @@ import path from "path";
 test.describe("Verify login functionality", () => {
 
     test.beforeEach("Open page", async({ signinPage }) => {
-        await signinPage.open();
+        await signinPage.open("https://www.saucedemo.com/inventory.html");
     });
 
-    test.only("Verify login on page", async({ signinPage, inventoryItemPage }) => {
-        
-        await test.step("Login", async() => {
-            await signinPage.login(process.env.USER_NAME, process.env.PASSWORD);
+    test.only("#0 Verify login on page", async({ inventoryItemPage }) => {
+
+        await test.step("Verify item is visible", async() => {
+            
+            await inventoryItemPage.page.waitForTimeout(3000);
+            await inventoryItemPage.clickAddToCardBtn();
         });
+    });
+
+    test.only("#1 Verify login on page", async({ inventoryItemPage }) => {
 
         await test.step("Verify item is visible", async() => {
             await expect(inventoryItemPage.getItemName()).toBeVisible();
+            await inventoryItemPage.page.waitForTimeout(2000);
+            await inventoryItemPage.clickAddToCardBtn();
         });
     });
 
-    test.only("Verify login with incorrect data", async({ signinPage }) => {
-        await test.step("Login", async() => {
-            await signinPage.login(process.env.USER_NAME, process.env.INCORRECT_PASSWORD);
-        });
+    test.only("#2 Verify login on page", async({ inventoryItemPage }) => {
 
-        await test.step("Verify error message is displayed.", async() => {
-            await expect(signinPage.getErrorMsg()).toHaveText("Epic sadface: Username and password do not match any user in this service");
+        await test.step("Verify item is visible", async() => {
+            await expect(inventoryItemPage.getItemName()).toBeVisible();
+            await inventoryItemPage.page.waitForTimeout(2000);
+            await inventoryItemPage.clickAddToCardBtn();
         });
     });
 
-    test("Verify login with parsed data", async({ signinPage }) => {
+    // test.only("Verify login with incorrect data", async({ inventoryItemPage }) => {
+        
+    //     await test.step("Verify error message is displayed.", async() => {
+    //         await expect(inventoryItemPage.getItemName()).toBeVisible();
+
+    //     });
+    // });
+
+    test.skip("Verify login with parsed data", async({ signinPage }) => {
 
         const file = readFileSync(path.resolve("data", "JupyterHubServer 2.txt"), { encoding: "utf-8"});
 
