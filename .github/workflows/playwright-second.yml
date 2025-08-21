@@ -1,0 +1,27 @@
+name: Debug test
+
+on: workflow_dispatch
+
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npx playwright install chromium --with-deps && npm ci
+
+      - name: Run ui tests
+        env:
+          USER_NAME: ${{ secrets.USER_NAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          INCORRECT_PASSWORD: ${{ secrets.INCORRECT_PASSWORD }}
+
+        run: npm run run:test
+     
+   
