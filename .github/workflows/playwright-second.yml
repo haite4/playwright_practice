@@ -22,5 +22,13 @@ jobs:
           INCORRECT_PASSWORD: ${{ secrets.INCORRECT_PASSWORD }}
 
         run: npm run run:test
+
+      - name: Upload failed test artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: failed-test-artifacts
+          path: test-results/
+          retention-days: 7
      
    
