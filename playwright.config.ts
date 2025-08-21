@@ -11,7 +11,8 @@ export default defineConfig({
   reporter: [["html"]],
   use: {
     baseURL: "https://www.saucedemo.com",
-
+    screenshot: "on-first-failure",
+    video: "retain-on-failure",
     trace: 'on-first-retry',
   },
 

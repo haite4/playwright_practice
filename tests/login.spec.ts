@@ -21,7 +21,7 @@ test.describe("Verify login functionality", () => {
     test("#1 Verify login on page", async({ inventoryItemPage }) => {
 
         await test.step("Verify item is visible", async() => {
-            await expect(inventoryItemPage.getItemName()).toBeVisible();
+            await expect(inventoryItemPage.getItemName()).not.toBeVisible();
             await inventoryItemPage.page.waitForTimeout(2000);
             await inventoryItemPage.clickAddToCardBtn();
         });

@@ -2,7 +2,6 @@ name: Debug test
 
 on: workflow_dispatch
 
-
 jobs:
   ui-tests:
     runs-on: ubuntu-latest
