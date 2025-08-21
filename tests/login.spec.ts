@@ -9,7 +9,7 @@ test.describe("Verify login functionality", () => {
         await signinPage.open("https://www.saucedemo.com/inventory.html");
     });
 
-    test.only("#0 Verify login on page", async({ inventoryItemPage }) => {
+    test("#0 Verify login on page", async({ inventoryItemPage }) => {
 
         await test.step("Verify item is visible", async() => {
             
@@ -18,7 +18,7 @@ test.describe("Verify login functionality", () => {
         });
     });
 
-    test.only("#1 Verify login on page", async({ inventoryItemPage }) => {
+    test("#1 Verify login on page", async({ inventoryItemPage }) => {
 
         await test.step("Verify item is visible", async() => {
             await expect(inventoryItemPage.getItemName()).toBeVisible();
@@ -27,7 +27,7 @@ test.describe("Verify login functionality", () => {
         });
     });
 
-    test.only("#2 Verify login on page", async({ inventoryItemPage }) => {
+    test("#2 Verify login on page", async({ inventoryItemPage }) => {
 
         await test.step("Verify item is visible", async() => {
             await expect(inventoryItemPage.getItemName()).toBeVisible();
